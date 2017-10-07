@@ -7,7 +7,6 @@ Config.MarkerColor          = {r = 255, g = 255, b = 255}
 Config.ParkingMarkerSize    = {x = 3.0, y = 3.0, z = 2.0}
 Config.ParkingMarkerColor   = {r = 102, g = 102, b = 204}
 Config.ZDiff                = 0.5
-Config.MustOwnVehicles      = true
 Config.MinimumHealthPercent = 0
 
 Config.Locale = 'en'
