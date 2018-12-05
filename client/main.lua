@@ -137,14 +137,21 @@ Citizen.CreateThread(function ()
 
                 ESX.TriggerServerCallback('netr_garages:checkIfVehicleIsOwned', function (owned)
 
-                  if owned ~= nil then                    
-                    TriggerServerEvent("netr_garages:updateOwnedVehicle", vehicleProps)
-                    TriggerServerEvent("netr_garages:addCarToParking", vehicleProps)
-
-                    TaskLeaveVehicle(playerPed, vehicle, 16)
-                    ESX.Game.DeleteVehicle(vehicle)
+                  if owned ~= nil then
+          		if (GetPedInVehicleSeat(vehicle, -1) == playerPed) then
+				if IsVehicleDamaged(veh) then
+					DisplayHelpText("You cannot store destroyed vehicle")
+				else
+					TriggerServerEvent("netr_garages:updateOwnedVehicle", vehicleProps)
+					TriggerServerEvent("netr_garages:addCarToParking", vehicleProps)
+					TaskLeaveVehicle(playerPed, vehicle, 16)
+					ESX.Game.DeleteVehicle(vehicle)
+				end
+          		else
+          			DisplayHelpText("You are not a driver")
+          		end
                   else
-                    DisplayHelpText("You don't own this car")
+                    DisplayHelpText("You are not a owner of this car.")
                   end
 
                 end, vehicleProps.plate)
