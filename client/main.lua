@@ -134,6 +134,7 @@ Citizen.CreateThread(function ()
                 local vehicleProps  = ESX.Game.GetVehicleProperties(vehicle)
                 local name          = GetDisplayNameFromVehicleModel(vehicleProps.model)
                 local plate         = vehicleProps.plate
+		local veh 	    = GetVehiclePedIsUsing(GetPlayerPed(-1))
 
                 ESX.TriggerServerCallback('netr_garages:checkIfVehicleIsOwned', function (owned)
 
