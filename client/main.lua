@@ -151,7 +151,7 @@ Citizen.CreateThread(function ()
           			DisplayHelpText("You are not a driver")
           		end
                   else
-                    DisplayHelpText("You are not a owner of this car.")
+                    DisplayHelpText("You don't own this car")
                   end
 
                 end, vehicleProps.plate)
